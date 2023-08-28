@@ -38,7 +38,7 @@
 5. **テストの実行**:
     - プロジェクトのテストを実行して、全てが正常に動作しているか確認します。
     ```bash
-    poetry run pytest
+    poetry run pre-commit
     ```
 
 ### コミット手順
@@ -46,7 +46,9 @@
 1. **コミット**:
     - `commitzen` を使用して以下のコマンドによりコミットを行ってください。
     ```bash
-    poetry run commitzen commit  # または poetry run cz c
+    git add <該当ファイル>
+    poetry run pre-commit  # この結果により、修正や re-staging が必要なファイルが生じたら修正し git add し直してください。
+    poetry run commitzen commit  # または poetry run cz c でも可能です。
     ```
     - コンフリクトを防ぐため、バージョン番号のインクリメントは `main` ブランチでのみ行ってください。
 
