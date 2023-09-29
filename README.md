@@ -43,14 +43,27 @@
 
 ### コミット手順
 
-1. **コミット**:
-    - `commitzen` を使用して以下のコマンドによりコミットを行ってください。
+1. **初回のみタグを手動作成**
+    - 最初のコミットを作成し、バージョンのタグを作成します。(tag は pyproject.toml に記載の内容と合わせてください)
+      ```bash
+      git commit --allow-empty -m "first commit"
+      git tag -a "0.1.0" -m "first version"
+      ```
+
+2. **コミット**:
+    - `commitizen` を使用して以下のコマンドによりコミットを行ってください。
     ```bash
     git add <該当ファイル>
     poetry run pre-commit  # この結果により、修正や re-staging が必要なファイルが生じたら修正し git add し直してください。
-    poetry run commitzen commit  # または poetry run cz c でも可能です。
+    poetry run cz commit
     ```
-    - コンフリクトを防ぐため、バージョン番号のインクリメントは `main` ブランチでのみ行ってください。
+
+3. **バージョンアップ**
+   - バージョンアップは、手動で行うように設定されています。以下のコマンドを実行してください。
+     ```bash
+     poetry run cz bump
+     ```
+   - コンフリクトを防ぐため、バージョン番号のインクリメントは `main` ブランチでのみ行ってください。
 
 ### そのほかのガイド
 
