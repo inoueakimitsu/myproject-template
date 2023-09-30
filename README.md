@@ -17,6 +17,7 @@ TODO: ユーザー向けの使用方法を記載します。
 #### リポジトリ名変更
 
 リポジトリ名に合わせて以下の手順で変更します。
+以下では yourproject というリポジトリ名に変更する手順を示します。
 
 ```bash
 # myproject-template ディレクトリを yourproject に変更します。
@@ -35,8 +36,7 @@ rm poetry.lock
 
 #### 役割の設定
 
-Developer, Reviewr, Merger の 3 つの役割にメンバーを割り当てます。基本的には全員 Developer, そのうち少数は Reviewer も兼ね、さらに Merger を兼ねるものも少し要rimasu.
-
+Developer, Reviewr, Merger の 3 つの役割にメンバーを割り当てます。
 
 #### pyproject.toml の変更
 
@@ -67,7 +67,10 @@ Python のバージョンや、初期バージョンを修正します。
     poetry install
     ```
 
-4. **pre-commit の設定**:
+4. **pip で入れられない依存関係のインストール**:
+    - conda ユーザー用の環境設定ファイルを作成するため conda をインストールします。miniconda のウェブサイトを参照してください。
+
+3. **pre-commit の設定**:
     - `pre-commit` を使用して、コミットするたびにテストやコードフォーマットが行われるようにします。このため、初回に以下のコマンドを実行して設定します。
     ```bash
     poetry run pre-commit install
