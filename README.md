@@ -1,12 +1,50 @@
 # myproject
 
-これは myproject の解説です。
+TODO: ここに myproject の解説を記載します。
 
 ## インストール
 
+TODO: インストール方法を記載します。
+
 ## 使用方法
 
+TODO: ユーザー向けの使用方法を記載します。
+
 ## 開発者向け
+
+### プロジェクト開始時の作業 (TODO: 完了したら削除)
+
+#### リポジトリ名変更
+
+リポジトリ名に合わせて以下の手順で変更します。
+
+```bash
+# myproject-template ディレクトリを yourproject に変更します。
+mv myproject-template yourproject
+cd yourproject
+# .git ディレクトリを削除する
+rm -rf .git
+# myproject という文字列を検索して全て yourproject に置換する。
+grep -rl 'myproject' . | xargs sed -i 's/myproject/yourproject/g'
+# myproject という文字列を全て yourproject に置換する。
+/usr/bin/find . -depth -name '*myproject*' | while read f; do      mv "$f" "$(dirname "$f")/$(basename "$f" | sed 's/myproject/yourproject/g')";  done
+git init
+rm -rf docs/*
+```
+
+#### 役割の設定
+
+Developer, Reviewr, Merger の 3 つの役割にメンバーを割り当てます。
+
+#### pyproject.toml の変更
+
+Python のバージョンや、初期バージョンを修正します。
+
+#### 初回コミット
+
+初回コミットをい実施します。
+
+# そのほかファイルをすべて初期バージョンに置き換えていきます。
 
 ### 開発環境の構築
 
