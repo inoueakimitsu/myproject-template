@@ -132,6 +132,38 @@ Python のバージョンや、初期バージョンを修正します。
 
 ### 開発手順: GitHub Flow
 
+```mermaid
+graph TD
+
+    subgraph "mainブランチの更新"
+        A1["git checkout main"]
+        A2["git pull origin main"]
+        A1 --> A2
+    end
+
+    subgraph "ブランチの作成"
+        B1["git checkout -b <branch-name>"]
+    end
+
+    subgraph "コーディングとコミット"
+        C1["コードの編集や追加"]
+        C2["git add <changed-files>"]
+        C3["git commit -m '<commit-message>'"]
+        C1 --> C2
+        C2 --> C3
+    end
+
+    subgraph "プルリクエストの作成"
+        D1["git push origin <branch-name>"]
+        D2["GitHub上でプルリクエストの作成"]
+        D1 --> D2
+    end
+    
+    A2 --> B1
+    B1 --> C1
+    C3 --> D1
+```
+
 1. **新しい機能や修正を開始する際のブランチ作成** (Developer):
     ```bash
     git checkout main
