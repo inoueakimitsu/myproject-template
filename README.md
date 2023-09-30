@@ -30,11 +30,13 @@ grep -rl 'myproject' . | xargs sed -i 's/myproject/yourproject/g'
 /usr/bin/find . -depth -name '*myproject*' | while read f; do      mv "$f" "$(dirname "$f")/$(basename "$f" | sed 's/myproject/yourproject/g')";  done
 git init
 rm -rf docs/*
+rm poetry.lock
 ```
 
 #### 役割の設定
 
-Developer, Reviewr, Merger の 3 つの役割にメンバーを割り当てます。
+Developer, Reviewr, Merger の 3 つの役割にメンバーを割り当てます。基本的には全員 Developer, そのうち少数は Reviewer も兼ね、さらに Merger を兼ねるものも少し要rimasu.
+
 
 #### pyproject.toml の変更
 
@@ -42,9 +44,7 @@ Python のバージョンや、初期バージョンを修正します。
 
 #### 初回コミット
 
-初回コミットをい実施します。
-
-# そのほかファイルをすべて初期バージョンに置き換えていきます。
+初回コミットを実施します。方法はこのページ末尾の資料を参照して下さい。
 
 ### 開発環境の構築
 
