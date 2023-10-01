@@ -107,10 +107,7 @@ Python のバージョンや、初期バージョンを修正します。
     poetry install
     ```
 
-4. **pip で入れられない依存関係のインストール**:
-    - conda ユーザー用の環境設定ファイルを作成するため conda をインストールします。miniconda のウェブサイトを参照してください。
-
-3. **pre-commit の設定**:
+4. **pre-commit の設定**:
     - `pre-commit` を使用して、コミットするたびにテストやコードフォーマットが行われるようにします。このため、初回に以下のコマンドを実行して設定します。
     ```bash
     poetry run pre-commit install
