@@ -16,6 +16,8 @@ TODO: ユーザー向けの使用方法を記載します。
 
 #### 概要
 
+[![slide](https://github.com/inoueakimitsu/myproject-template/assets/2350154/a75e2f82-984d-49fc-98ae-365a2cfb4b09)](https://docs.google.com/presentation/d/e/2PACX-1vTveb1yv4tdloyvD2AFuVcGnQ_Zbn8X-LfG8teautpbP8N65fuHUG4CrUrww9BgaA/pub?start=false&loop=false&delayms=3000)
+
 ```mermaid
 graph TD
     A[Roleの設定]
