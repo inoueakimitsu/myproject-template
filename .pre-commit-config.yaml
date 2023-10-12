@@ -7,7 +7,8 @@ repos:
       - id: trailing-whitespace
       # かなりシンプルな YAML でないとファイルを壊すことがあるので無効化します。
       # - id: sort-simple-yaml
-      - id: requirements-txt-fixer
+      # requirements.txt へのエクスポーターとバッティングするので無効化します。
+      # - id: requirements-txt-fixer
       - id: pretty-format-json
         exclude: ^notebooks/
       # - id: no-commit-to-branch  # TODO: 人によっては不便になるのでコメントアウトします。
@@ -43,25 +44,13 @@ repos:
       - id: check-ast
       - id: check-added-large-files
 
-  - repo: https://github.com/psf/black
-    rev: 22.10.0
-    hooks:
-      - id: black
-        language_version: python3.10
-        args:
-          - --line-length=128
-      - id: black-jupyter
-        language_version: python3.10
-        args:
-          - --line-length=128
-
   - repo: local
     hooks:
     - id: pdoc3
       name: pdoc3
       language: system
       types: [python]
-      entry: "poetry run pdoc --html --force -o docs --config show_source_code=False mailprompt"
+      entry: "poetry run pdoc --html --force -o docs --config show_source_code=False myproject"
       always_run: true
       pass_filenames: false
 
@@ -120,7 +109,7 @@ repos:
         name: pytest-cov
         stages: [commit]
         language: system
-        entry: poetry run pytest -v --cov=mailprompt --cov-fail-under=50
+        entry: poetry run pytest -v --cov=myproject --cov-fail-under=50
         types: [python]
         pass_filenames: false
         always_run: true
@@ -157,7 +146,7 @@ repos:
     rev: '6.3.0'
     hooks:
     -   id: pydocstyle
-        args: ['--add-ignore=D400,D205', 'mailprompt', 'tests', 'example']
+        args: ['--add-ignore=D400,D205,D403', 'myproject', 'tests', 'example']
         additional_dependencies: ['tomli']
 
   - repo: https://github.com/asottile/yesqa
@@ -190,7 +179,7 @@ repos:
     rev: '1.7.3'
     hooks:
     - id: bandit
-      args: ['--exclude', 'tests,scripts', '-r', 'mailprompt']
+      args: ['--exclude', 'tests,scripts', '-r', 'myproject']
 
   - repo: https://github.com/commitizen-tools/commitizen
     rev: 3.6.0
