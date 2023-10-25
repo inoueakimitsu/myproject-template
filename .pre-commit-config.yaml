@@ -50,7 +50,7 @@ repos:
       name: pdoc3
       language: system
       types: [python]
-      entry: "poetry run pdoc --html --force -o docs --config show_source_code=False myproject"
+      entry: "poetry run pdoc --html --force -o docs --config show_source_code=False --config latex_math=True myproject"
       always_run: true
       pass_filenames: false
 
