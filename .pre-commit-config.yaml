@@ -182,7 +182,7 @@ repos:
       args: ['--exclude', 'tests,scripts', '-r', 'myproject']
 
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: 3.6.0
+    rev: v3.13.0
     hooks:
       - id: commitizen
       - id: commitizen-branch
