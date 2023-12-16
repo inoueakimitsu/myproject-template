@@ -75,6 +75,7 @@ grep -rl 'myproject' . | xargs sed -i 's/myproject/yourproject/g'
 git init
 rm -rf docs/*
 rm poetry.lock
+rm LICENSE
 ```
 
 #### pyproject.toml の変更
