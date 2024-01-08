@@ -206,6 +206,8 @@ graph TD
     ```
 
     上記のバージョンは `pyproject.toml` に合わせてください。
+    なおバージョンのメジャーバージョンを 1 以上にする場合は、
+    `pyproject.toml` の `major_version_zero = true` の行を削除してください。
 
 3. **コミット**:
     ```bash
