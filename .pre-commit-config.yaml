@@ -9,8 +9,6 @@ repos:
       # - id: sort-simple-yaml
       # requirements.txt へのエクスポーターとバッティングするので無効化します。
       # - id: requirements-txt-fixer
-      - id: pretty-format-json
-        exclude: ^notebooks/
       # - id: no-commit-to-branch  # TODO: 人によっては不便になるのでコメントアウトします。
       - id: name-tests-test
       - id: mixed-line-ending
@@ -35,7 +33,6 @@ repos:
       - id: check-symlinks
       - id: check-shebang-scripts-are-executable
       - id: check-merge-conflict
-      - id: check-json
       - id: check-executables-have-shebangs
       - id: check-case-conflict
       - id: check-case-conflict
