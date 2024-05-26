@@ -40,6 +40,16 @@ repos:
       - id: check-ast
       - id: check-added-large-files
 
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.4.5
+    hooks:
+      # Run the linter.
+      - id: ruff
+        args: [ --fix ]
+      # Run the formatter.
+      - id: ruff-format
+
   - repo: local
     hooks:
     - id: pdoc3
