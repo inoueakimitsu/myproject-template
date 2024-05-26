@@ -1,0 +1,69 @@
+# 除外パスおよびパターン
+exclude = ["CVS"]
+extend-exclude = ["^\\."]
+
+# 許容される最大行の長さ
+line-length = 128
+
+# ターゲットとする Python のバージョン
+target-version = "py310"
+
+[lint]
+
+# 命名規則
+naming-negate-camelcase = true
+class-name-style = "PascalCase"
+const-name-style = "UPPER_CASE"
+function-name-style = "snake_case"
+variable-name-style = "snake_case"
+argument-name-style = "snake_case"
+method-name-style = "snake_case"
+module-name-style = "snake_case"
+attr-name-style = "snake_case"
+
+# 禁止された変数名
+bad-names = ["foo", "bar", "baz", "toto", "tutu", "tata"]
+good-names = ["i", "j", "k", "ex", "Run", "_", "x", "y", "z", "df"]
+
+# 設計ルールの構成
+max-args = 5
+max-attributes = 7
+max-bool-expr = 5
+max-branches = 12
+max-locals = 15
+max-public-methods = 20
+max-returns = 6
+max-statements = 50
+max-nested-blocks = 5
+
+# 未使用の変数のパターンと設定
+dummy-variable-rgx = "^(_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_)$"
+ignored-argument-names = "^_.*|^ignored_|^unused_"
+
+# インポートを無視するためのパターン
+namespace-packages = ["six.moves", "past.builtins", "future.builtins", "builtins", "io"]
+
+# ロギング構成設定
+logger-objects = ["logging.Logger"]
+
+# 既知のサードパーティ ライブラリ
+known-third-party = ["enchant"]
+
+# PyDocStyle 設定
+[lint.pydocstyle]
+
+convention = "pep257"
+
+# プラグイン (現時点では ruff でサポートされていません)
+# 必要に応じてサポートが利用可能になった場合にコメントを外して使用してください。
+# load-plugins = ""
+
+# 最大複雑度の設定
+[lint.mccabe]
+
+max-complexity = 10
+
+# Pyflakes設定 (一般的な構成の例)
+[lint.pyflakes]
+
+extend-generics = ["django.db.models.ForeignKey"]
