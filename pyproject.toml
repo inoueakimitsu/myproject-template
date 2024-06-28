@@ -14,7 +14,6 @@ requests = "^2.31.0"
 pre-commit = "^3.3.3"
 pytest-cov = "^4.1.0"
 commitizen = "^3.6.0"
-poetry2conda = "^0.3.0"
 pylint = "^2.17.5"
 pdoc3 = "^0.10.0"
 
@@ -28,9 +27,3 @@ major_version_zero = true
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.poetry2conda]
-name = "myproject-env"
-
-[tool.poetry2conda.dependencies]
-foo = { channel = "conda-forge" }

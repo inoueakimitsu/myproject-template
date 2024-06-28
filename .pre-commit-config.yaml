@@ -129,18 +129,6 @@ repos:
     - id: poetry-export
       args: ["-f", "requirements.txt", "-o", "requirements.txt", "--without-hashes"]
 
-  # poetry から conda 用の environment.yml を生成
-  - repo: local
-    hooks:
-    - id: generate_conda_environemnt_yml
-      name: generate_conda_environemnt_yml
-      stages: [commit]
-      language: system
-      entry: poetry run python scripts/generate_conda_file.py
-      types: [python]
-      pass_filenames: false
-      always_run: true
-
   # Python コードの自動アップグレードツール pyupgrade
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.10.1
