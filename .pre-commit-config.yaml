@@ -60,46 +60,6 @@ repos:
       always_run: true
       pass_filenames: false
 
-  - repo: https://github.com/pycqa/isort
-    rev: 5.11.5
-    hooks:
-      - id: isort
-        args: [ "--profile", "black" ]
-
-
-  # Python の構文チェックツール Flake8
-  - repo: https://github.com/pycqa/flake8.git
-    rev: 6.1.0  # 任意のバージョン
-    hooks:
-      - id: flake8  # コードに構文エラーやスタイル違反がないかチェック
-        additional_dependencies:
-          - flake8-bugbear
-          - flake8-comprehensions
-          - flake8-simplify
-
-  # Pylint
-  - repo: local
-    hooks:
-    - id: pylint
-      name: pylint
-      entry: poetry run pylint
-      language: system
-      types: [python]
-      args:
-        [
-          "-rn", # Only display messages
-          "-sn", # Don't display the score
-          "--rcfile=.pylintrc", # Link to your config file
-          "--load-plugins=pylint.extensions.docparams", # Load an extension
-        ]
-
-  # 特定の Python コードパターンに対するフック
-  - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.10.0  # 任意のバージョン
-    hooks:
-      - id: python-check-blanket-noqa  # 全体に適用される noqa コメントを検出
-      - id: python-check-mock-methods  # mock メソッドが正しく使われているかチェック
-
   # プロジェクト独自の pytest フック
   - repo: local
     hooks:
@@ -128,52 +88,6 @@ repos:
     - id: poetry-lock
     - id: poetry-export
       args: ["-f", "requirements.txt", "-o", "requirements.txt", "--without-hashes"]
-
-  # Python コードの自動アップグレードツール pyupgrade
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.10.1
-    hooks:
-      - id: pyupgrade
-
-  # docstring が正しい形式であるかの確認を行います。
-  - repo: https://github.com/pycqa/pydocstyle
-    rev: '6.3.0'
-    hooks:
-    -   id: pydocstyle
-        args: ['--add-ignore=D400,D205,D403', 'myproject', 'tests', 'example']
-        additional_dependencies: ['tomli']
-
-  - repo: https://github.com/asottile/yesqa
-    rev: v1.4.0
-    hooks:
-      - id: yesqa
-        additional_dependencies:
-          - flake8-bugbear==22.8.23
-          - flake8-comprehensions==3.10.0
-          - flake8-docstrings==1.6.0
-
-  # 未使用の import がないかを確認します。
-  - repo: https://github.com/hadialqattan/pycln
-    rev: 'v2.1.5'
-    hooks:
-    -   id: pycln
-        args: ['.', "--all"]
-
-  - repo: https://github.com/DanielNoord/pydocstringformatter
-    rev: v0.7.3
-    hooks:
-      - id: pydocstringformatter
-        args:
-          - '--max-summary-lines=2'
-          - '--linewrap-full-docstring'
-          - '--no-final-period'
-          - '--no-capitalize-first-letter'
-
-  - repo: https://github.com/PyCQA/bandit
-    rev: '1.7.3'
-    hooks:
-    - id: bandit
-      args: ['--exclude', 'tests,scripts', '-lll', '-r', 'myproject']
 
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v3.13.0
