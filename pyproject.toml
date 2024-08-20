@@ -15,7 +15,7 @@ pre-commit = "^3.3.3"
 pytest-cov = "^4.1.0"
 commitizen = "^3.6.0"
 pylint = "^2.17.5"
-pdoc3 = "^0.10.0"
+pdoc3 = "^0.11.1"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
